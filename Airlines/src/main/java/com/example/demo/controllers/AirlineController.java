@@ -3,7 +3,7 @@ package com.example.demo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.models.Airline;
+import com.example.demo.models.*;
 import com.example.demo.repositories.AirlineRepository;
 
 import java.util.List;
@@ -23,6 +23,12 @@ public class AirlineController {
     @GetMapping("/{id}")
     public Airline getById(@PathVariable int id) {
         return airlineRepository.findById(id).orElse(null);
+    }
+    
+    @GetMapping("/{id}/flights")
+    public List<Flight> getFlightsByAirline(@PathVariable int id){
+    	Airline airline = airlineRepository.findById(id).orElseThrow();
+    	return airline.getFlights();
     }
 
     @PostMapping

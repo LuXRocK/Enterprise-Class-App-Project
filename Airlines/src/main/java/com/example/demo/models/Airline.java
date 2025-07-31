@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Airline")
 @Data
@@ -23,6 +25,7 @@ public class Airline {
     private String country;
 
     @OneToMany(mappedBy = "airline")
+    @JsonIgnore
     private List<Flight> flights;
 }
 

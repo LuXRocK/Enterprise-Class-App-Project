@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "Flight")
 @Data
@@ -32,10 +34,12 @@ public class Flight {
 
     @ManyToOne
     @JoinColumn(name = "departure_airport_id", nullable = false)
+    @JsonBackReference("departure")
     private Airport departureAirport;
 
     @ManyToOne
     @JoinColumn(name = "arrival_airport_id", nullable = false)
+    @JsonBackReference("arrival")
     private Airport arrivalAirport;
 
     @ManyToOne
@@ -43,7 +47,7 @@ public class Flight {
     private Airline airline;
 
     @ManyToOne
-    @JoinColumn(name = "plane_id", nullable = false)
+    @JoinColumn(name = "plane_id", nullable = true)
     private Plane plane;
 
     @OneToMany(mappedBy = "flight")
