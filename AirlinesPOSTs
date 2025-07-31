@@ -1,0 +1,52 @@
+airline id = 1 
+{
+    "name": "LOT",
+    "country": "Poland"
+}
+
+departure airport id = 1
+
+{
+    "code": "FRA",
+    "name": "Frankfurt Airport",
+    "city": "Frankfurt",
+    "country": "Germany"
+}
+
+arrival airport id = 2
+
+{
+    "code": "JFK",
+    "name": "JFK New York Airport",
+    "city": "New York",
+    "country": "United States of America"
+}
+
+flight post:
+{
+    "status": "SCHEDULED",
+    "code": "LH400",
+    "departureTime": "2025-07-31T14:30:00",
+    "arrivalTime": "2025-08-01T03:30:00",
+    "departureAirportId": 1,
+    "arrivalAirportId": 2,
+    "airlineId": 1
+}
+
+passenger post:
+{
+  "name": "Jan",
+  "surname": "Kowalski",
+  "pesel": "90010112345",
+  "email": "jan.kowalski@example.com",
+  "flightId": 1
+}
+
+plane post:
+{
+    "model": "Boeing 747",
+    "seats": 500,
+    "productionYear": 2020,
+    "airlineId": 1
+}
+
