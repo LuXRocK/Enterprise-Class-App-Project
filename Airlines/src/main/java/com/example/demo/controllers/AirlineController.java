@@ -30,6 +30,12 @@ public class AirlineController {
     	Airline airline = airlineRepository.findById(id).orElseThrow();
     	return airline.getFlights();
     }
+    
+    @GetMapping("/{id}/planes")
+    public List<Plane> getPlanesByAirline(@PathVariable int id){
+    	Airline airline = airlineRepository.findById(id).orElseThrow();
+    	return airline.getPlanes();
+    }
 
     @PostMapping
     public Airline add(@RequestBody Airline airline) {

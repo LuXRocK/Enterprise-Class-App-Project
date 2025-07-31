@@ -34,6 +34,12 @@ public class FlightController {
     public Flight getById(@PathVariable int id) {
         return flightRepository.findById(id).orElse(null);
     }
+    
+    @GetMapping("/{id}/passengers")
+    public List<Passenger> getPassengersByFlight(@PathVariable int id){
+    	Flight flight = flightRepository.findById(id).orElseThrow();
+    	return flight.getPassengers();
+    }
 
     @PostMapping
     public Flight add(@RequestBody FlightRequestDTO dto) {

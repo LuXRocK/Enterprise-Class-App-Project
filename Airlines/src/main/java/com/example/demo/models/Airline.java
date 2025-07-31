@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -27,5 +28,9 @@ public class Airline {
     @OneToMany(mappedBy = "airline")
     @JsonIgnore
     private List<Flight> flights;
+    
+    @OneToMany(mappedBy = "airline")
+    @JsonBackReference("plane")
+    private List<Plane> planes;
 }
 

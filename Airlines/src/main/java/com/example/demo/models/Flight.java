@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Flight")
@@ -51,6 +52,7 @@ public class Flight {
     private Plane plane;
 
     @OneToMany(mappedBy = "flight")
+    @JsonIgnore
     private List<Passenger> passengers;
 
     public enum FlightStatus {

@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,5 +30,6 @@ public class Passenger {
 
     @ManyToOne
     @JoinColumn(name = "flight_id", nullable = false)
+    @JsonIgnore
     private Flight flight;
 }

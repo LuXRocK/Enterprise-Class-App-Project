@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "Plane")
 @Data
@@ -27,5 +29,6 @@ public class Plane {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "airline_id", nullable = false)
+    @JsonBackReference("airline")
     private Airline airline;
 }
