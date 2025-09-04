@@ -1,6 +1,8 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,14 +24,15 @@ public class Passenger {
     @Column(nullable = false)
     private String surname;
 
-    @Column(nullable = false, unique = true, length = 11)
-    private String pesel;
-
     @Column(nullable = false)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "flight_id", nullable = false)
-    @JsonIgnore
-    private Flight flight;
+    @ManyToMany
+    @JoinTable(
+    		name = "passenger_flight",
+    		joinColumns = @JoinColumn(name = "passenger_id"),
+    		inverseJoinColumns = @JoinColumn(name = "flight_id")
+    		)
+//    @JsonIgnore
+    private List<Flight> flights;
 }

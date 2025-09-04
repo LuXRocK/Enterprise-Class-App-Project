@@ -31,15 +31,12 @@ public class PassengerController {
 
     @PostMapping
     public Passenger add(@RequestBody PassengerRequestDTO dto) {
-    	Flight flight = flightRepository.findById(dto.getFlightId())
-    			.orElseThrow(() -> new RuntimeException("Flight not found"));
-    	
     	Passenger passenger = new Passenger();
     	passenger.setName(dto.getName());
     	passenger.setSurname(dto.getSurname());
-    	passenger.setPesel(dto.getPesel());
     	passenger.setEmail(dto.getEmail());
-    	passenger.setFlight(flight);
+    	List<Flight> flights = flightRepository.findAllById(dto.getFlightIds());
+    	passenger.setFlights(flights);
         return passengerRepository.save(passenger);
     }
 

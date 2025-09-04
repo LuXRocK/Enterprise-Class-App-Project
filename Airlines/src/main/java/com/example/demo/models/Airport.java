@@ -4,10 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name = "Airport")
 @Data
@@ -30,11 +26,4 @@ public class Airport {
     @Column(nullable = false)
     private String country;
 
-    @OneToMany(mappedBy = "departureAirport")
-    @JsonManagedReference("departure")
-    private List<Flight> departures;
-
-    @OneToMany(mappedBy = "arrivalAirport")
-    @JsonManagedReference("arrival")
-    private List<Flight> arrivals;
 }

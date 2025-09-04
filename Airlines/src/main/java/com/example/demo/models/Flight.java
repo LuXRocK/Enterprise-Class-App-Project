@@ -51,7 +51,7 @@ public class Flight {
     @JoinColumn(name = "plane_id", nullable = true)
     private Plane plane;
 
-    @OneToMany(mappedBy = "flight")
+    @ManyToMany(mappedBy = "flights")
     @JsonIgnore
     private List<Passenger> passengers;
 

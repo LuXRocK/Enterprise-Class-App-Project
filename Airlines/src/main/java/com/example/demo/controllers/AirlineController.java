@@ -25,12 +25,12 @@ public class AirlineController {
         return airlineRepository.findById(id).orElse(null);
     }
     
-    @GetMapping("/{id}/flights")
-    public List<Flight> getFlightsByAirline(@PathVariable int id){
-    	Airline airline = airlineRepository.findById(id).orElseThrow();
-    	return airline.getFlights();
-    }
-    
+//    @GetMapping("/{id}/flights")
+//    public List<Flight> getFlightsByAirline(@PathVariable int id){
+//    	Airline airline = airlineRepository.findById(id).orElseThrow();
+//    	return airline.getFlights();
+//    }
+//    
     @GetMapping("/{id}/planes")
     public List<Plane> getPlanesByAirline(@PathVariable int id){
     	Airline airline = airlineRepository.findById(id).orElseThrow();

@@ -33,13 +33,22 @@ flight post:
     "airlineId": 1
 }
 
+{
+    "status": "SCHEDULED",
+    "code": "LH401",
+    "departureTime": "2025-07-31T14:30:00",
+    "arrivalTime": "2025-08-01T03:30:00",
+    "departureAirportId": 2,
+    "arrivalAirportId": 1,
+    "airlineId": 1
+}
+
 passenger post:
 {
   "name": "Jan",
   "surname": "Kowalski",
-  "pesel": "90010112345",
   "email": "jan.kowalski@example.com",
-  "flightId": 1
+  "flightIds": [1, 2]
 }
 
 plane post:
